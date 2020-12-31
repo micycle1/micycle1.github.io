@@ -1,0 +1,2 @@
+- name: Hugo to GH Pages
+  uses: micycle1/micycle1.github.io
