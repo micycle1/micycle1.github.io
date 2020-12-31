@@ -6,30 +6,28 @@ categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
-# ```{r echo=FALSE}
-# library(rbokeh)
-# figure() %>%
-#   ly_points(Sepal.Length, Sepal.Width, data = iris,
-#     color = Species, glyph = Species,
-#     hover = list(Sepal.Length, Sepal.Width))
-# 
-# ```
-# 
-# 
-# ```{r echo=FALSE}
-# library(rgl)
-# library(rglwidget)
-# library(htmltools)
-# ```
-# 
-# ```{r, test-rgl, webgl=TRUE}
-# x <- sort(rnorm(1000))
-# y <- rnorm(1000)
-# z <- rnorm(1000) + atan2(x,y)
-# plot3d(x, y, z, col = rainbow(1000))
-# ```
+```{r echo=FALSE}
+library(rbokeh)
+figure() %>%
+  ly_points(Sepal.Length, Sepal.Width, data = iris,
+    color = Species, glyph = Species,
+    hover = list(Sepal.Length, Sepal.Width))
+
+```
 
 
+```{r echo=FALSE}
+library(rgl)
+library(rglwidget)
+library(htmltools)
+```
+
+```{r, test-rgl, webgl=TRUE}
+x <- sort(rnorm(1000))
+y <- rnorm(1000)
+z <- rnorm(1000) + atan2(x,y)
+plot3d(x, y, z, col = rainbow(1000))
+```
 
 ```{r echo=FALSE}
 if(require("plotly")) {
@@ -46,13 +44,12 @@ fig2 <- subplot(
 fig2
 ```
 
-# ```{r}
-# library(metricsgraphics)
-# mjs_plot(mtcars, x=wt, y=mpg) %>%
-#   mjs_point(color_accessor=carb, size_accessor=carb) %>%
-#   mjs_labs(x="Weight of Car", y="Miles per Gallon")
-# ```
-
+```{r}
+library(metricsgraphics)
+mjs_plot(mtcars, x=wt, y=mpg) %>%
+  mjs_point(color_accessor=carb, size_accessor=carb) %>%
+  mjs_labs(x="Weight of Car", y="Miles per Gallon")
+```
 
 # R Markdown
 
