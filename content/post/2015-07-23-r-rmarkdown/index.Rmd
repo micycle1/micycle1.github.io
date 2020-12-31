@@ -6,38 +6,35 @@ categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
-```{r echo=FALSE}
-library(rbokeh)
-figure() %>%
-  ly_points(Sepal.Length, Sepal.Width, data = iris,
-    color = Species, glyph = Species,
-    hover = list(Sepal.Length, Sepal.Width))
+# ```{r echo=FALSE}
+# library(rbokeh)
+# figure() %>%
+#   ly_points(Sepal.Length, Sepal.Width, data = iris,
+#     color = Species, glyph = Species,
+#     hover = list(Sepal.Length, Sepal.Width))
+# 
+# ```
+# 
+# 
+# ```{r echo=FALSE}
+# library(rgl)
+# library(rglwidget)
+# library(htmltools)
+# ```
+# 
+# ```{r, test-rgl, webgl=TRUE}
+# x <- sort(rnorm(1000))
+# y <- rnorm(1000)
+# z <- rnorm(1000) + atan2(x,y)
+# plot3d(x, y, z, col = rainbow(1000))
+# ```
 
-```
 
-
-```{r echo=FALSE}
-library(rgl)
-library(rglwidget)
-library(htmltools)
-
-theta <- seq(0, 6*pi, len=100)
-xyz <- cbind(sin(theta), cos(theta), theta)
-lineid <- plot3d(xyz, type="l", alpha = 1:0, 
-                 lwd = 5, col = "blue")["data"]
-
-browsable(tagList(
-  rglwidget(elementId = "example", width = 500, height = 400,
-            controllers = "player"),
-  playwidget("example", 
-             ageControl(births = theta, ages = c(0, 0, 1),
-                        objids = lineid, alpha = c(0, 1, 0)),
-                        start = 1, stop = 6*pi, step = 0.1, 
-                        rate = 6,elementId = "player")
-))
-```
 
 ```{r echo=FALSE}
+if(require("plotly")) {
+  install.packages("plotly", repos = "http://cran.us.r-project.org")
+}
 library(plotly)
 s <- matrix(c(1, -.75, -.75, 1), ncol = 2)
 obs <- mvtnorm::rmvnorm(500, sigma = s)
@@ -49,12 +46,13 @@ fig2 <- subplot(
 fig2
 ```
 
-```{r}
-library(metricsgraphics)
-mjs_plot(mtcars, x=wt, y=mpg) %>%
-  mjs_point(color_accessor=carb, size_accessor=carb) %>%
-  mjs_labs(x="Weight of Car", y="Miles per Gallon")
-```
+# ```{r}
+# library(metricsgraphics)
+# mjs_plot(mtcars, x=wt, y=mpg) %>%
+#   mjs_point(color_accessor=carb, size_accessor=carb) %>%
+#   mjs_labs(x="Weight of Car", y="Miles per Gallon")
+# ```
+
 
 # R Markdown
 
