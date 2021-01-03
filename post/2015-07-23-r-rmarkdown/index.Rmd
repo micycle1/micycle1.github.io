@@ -5,9 +5,16 @@ date: 2015-07-23T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
+hello{{% right %}}
+*Last compiled on `r format(Sys.time(), '%d %B, %Y')`*
+{{% /right %}}
+test
 
-```{r echo=FALSE}
+***
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(rbokeh)
+library(plotly)
 figure() %>%
   ly_points(Sepal.Length, Sepal.Width, data = iris,
     color = Species, glyph = Species,
@@ -16,24 +23,16 @@ figure() %>%
 ```
 
 
-```{r echo=FALSE}
-library(rgl)
-library(rglwidget)
-library(htmltools)
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+data(diamonds, package = "ggplot2")
+plot_ly(diamonds, x = ~cut)
+plot_ly(diamonds, x = ~cut, y = ~clarity)
+plot_ly(diamonds, x = ~cut, color = ~clarity, colors = "Accent") %>% config(displayModeBar = F) %>% layout(xaxis=list(fixedrange=TRUE)) %>% layout(yaxis=list(fixedrange=TRUE))
+
 ```
 
-```{r, test-rgl, webgl=TRUE}
-x <- sort(rnorm(1000))
-y <- rnorm(1000)
-z <- rnorm(1000) + atan2(x,y)
-plot3d(x, y, z, col = rainbow(1000))
-```
 
-```{r echo=FALSE}
-if(require("plotly")) {
-  install.packages("plotly", repos = "http://cran.us.r-project.org")
-}
-library(plotly)
+```{r echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
 s <- matrix(c(1, -.75, -.75, 1), ncol = 2)
 obs <- mvtnorm::rmvnorm(500, sigma = s)
 fig <- plot_ly(x = obs[,1], y = obs[,2])
@@ -44,14 +43,73 @@ fig2 <- subplot(
 fig2
 ```
 
-```{r}
+```{r, tidy = TRUE, tidy.opts=list(indent=8, width.cutoff=50)}
 library(metricsgraphics)
 mjs_plot(mtcars, x=wt, y=mpg) %>%
   mjs_point(color_accessor=carb, size_accessor=carb) %>%
   mjs_labs(x="Weight of Car", y="Miles per Gallon")
 ```
 
-# R Markdown
+```{r cache=TRUE}
+library("threejs")
+
+N     = 20000
+theta = runif(N)*2*pi
+phi   = runif(N)*2*pi
+R     = 1.5
+r     = 1.0
+
+x = (R + r*cos(theta))*cos(phi)
+y = (R + r*cos(theta))*sin(phi)
+z = r*sin(theta)
+
+d = 6
+h = 6
+t = 2*runif(N) - 1
+w = t^2*sqrt(1-t^2)
+x1 = d*cos(theta)*sin(phi)*w
+y1 = d*sin(theta)*sin(phi)*w
+
+i = order(phi)
+j = order(t)
+col = c(rainbow(length(phi))[order(i)],
+        rainbow(length(t), start=0, end=2/6)[order(j)])
+
+M = cbind(x=c(x, x1), y=c(y, y1), z=c(z, h*t))
+scatterplot3js(M, size=0.1, color=col, bg="black", pch=".")
+```
+
+```{r}
+data(ego)
+graphjs(ego, bg="black")
+```
+
+```{python}
+x = 42 * 2
+print(x) 
+```
+
+```{r echo=FALSE, cache=TRUE}
+library(tidyverse)
+dat <- tibble(country = toupper(c("United States", "Canada", "Portugal", "Ireland", "Italy", "Belgium", "Finland", "France", "Netherlands", "Denmark", "Sweden", "Slovakia", "Austria", "New Zealand", "Australia", "Spain", "Czech Republic", "Hungry", "Germany", "United Kingdom", "Norway", "Japan", "Republic of Korea")),
+              count = c(3.61, 0.5, 0.48, 0.35, 0.35, 0.33, 0.26, 0.20, 0.20, 0.20, 0.19, 0.19, 0.18, 0.16,
+                        0.16, 0.15, 0.12, 0.10, 0.06, 0.04, 0.04, 0.01, 0.01))
+
+dat %>% 
+  mutate(country = reorder(country, count)) %>%
+  ggplot(aes(country, count, label = count)) +   
+  geom_bar(stat = "identity", fill = "darkred", width = 0.5) +
+  geom_text(nudge_y = 0.2,  size = 3) +
+  xlab("") + ylab("") + 
+  ggtitle(toupper("Gun Murders per 100,000 residents")) + 
+  theme_minimal() +
+  theme(panel.grid.major =element_blank(), panel.grid.minor = element_blank(), 
+        axis.text.x = element_blank(),
+        axis.ticks.length = unit(-0.4, "cm")) + 
+  coord_flip() 
+```
+
+# R Markdow
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
