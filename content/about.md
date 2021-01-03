@@ -1,20 +1,31 @@
 ---
-date: "2017-08-20T21:38:52+08:00"
-lastmod: "2017-08-28T21:41:52+08:00"
-menu: main
 title: About
+author: Michael Carleton
+date: '2020-01-03'
+lastmod: '2017-08-28T21:41:52+08:00'
+menu: main
 weight: 50
+comment: false
+toc: false
+showFooter: false
 ---
 
-Hugo is a static site engine written in Go.
+## Me
 
+yadda
 
-It makes use of a variety of open source projects including:
+\setlength{\leftskip}{2cm}
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+Items 1
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+Item 2x
 
+Item 3
+
+\setlength{\leftskip}{0pt}
+
+## This Blog
+
+written in ... 
+
+devoted to ...
