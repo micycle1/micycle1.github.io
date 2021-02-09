@@ -12,6 +12,7 @@ flowchartDiagrams:
     ''i-am-a-comment-3'': ''even flowstate support ;-)'', ''flowstate'': { ''request'':
     {''fill'': ''blue''} } }'
 title: JS Flowchart Diagrams
+hiddenFromHomePage: true
 ---
 
 ## Usage

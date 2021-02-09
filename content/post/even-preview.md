@@ -6,7 +6,7 @@ categories:
 - category-3
 contentCopyright: MIT
 date: "2018-07-10T00:00:00+08:00"
-draft: false
+draft: true
 lastmod: "2018-07-10T00:00:00+08:00"
 mathjax: true
 tags:
@@ -15,6 +15,7 @@ tags:
 - tag-3
 title: Theme preview
 weight: 10
+hiddenFromHomePage: true
 ---
 
 > Based on [MarkdownPreview test.md](https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md).

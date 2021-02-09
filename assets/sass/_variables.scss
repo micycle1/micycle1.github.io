@@ -40,7 +40,7 @@ $dark-gray: #8a8a8a !default;
 
 // micycle
 $black: #0a0a0a;
-$white: #ec6911;
+$white: #f0f7fa;
 $light-gray: #e6e6e6;
 $gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -52,7 +52,7 @@ $global-font-color: #34495e !default;
 $global-font-color: #36464d;
 
 // Font size attribute applied to '<html>' and '<body>'.
-$global-font-size: 16px !default;
+$global-font-size: 18px !default;
 
 // Global width of '<body>'.
 $global-body-width: 800px !default;
@@ -62,9 +62,11 @@ $global-container-padding: 0 20px !default;
 
 // Default line height for all type. `$global-lineheight` is 24px while `$global-font-size` is 16px.
 $global-lineheight: 1.5 !default;
+$global-lineheight: 1.6;
 
 // Font family of the site.
 $global-font-family: 'Bitter', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !default;
+$global-font-family: 'Spectral', 'Bitter';
 
 // Serif font family of the site.
 $global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
@@ -94,6 +96,12 @@ $header-padding: 20px 20px !default;
 // Bitter font
 @import url('https://fonts.googleapis.com/css2?family=Bitter&family=Karla:wght@600&display=swap');
 
+// Spectral font
+@import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
+
+// PT Serif font
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 // Font family: Chancery
 @font-face {
   font-family: 'Chancery';
@@ -116,13 +124,13 @@ $logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
 $logo-font-family: 'Karla';
 
 // Margin of menu item.
-$menu-item-margin-left: 10px !default;
+$menu-item-margin-left: 15px !default; // space between items
 
 // Margin of menu item in mobile.
 $menu-item-mobile-margin: 5px !default;
 
 // Font size of menu item link.
-$menu-link-font-size: 20px !default;
+$menu-link-font-size: 19px !default;
 
 // Height of the mobile header.
 $mobile-navbar-height: 50px !default;
@@ -138,7 +146,7 @@ $post-padding: 1.5em 0 !default;
 $post-border: 1px solid $light-gray !default;
 
 // Font size of post title.
-$post-title-font-size: 27px !default;
+$post-title-font-size: 30px;
 
 // Font weight of post title.
 $post-title-font-weight: 400 !default;
@@ -165,7 +173,7 @@ $post-tags-padding: 15px 0 !default;
 $post-nav-font-size: 18px !default;
 
 
-// ========== TOC ========== //
+// ========== TOC (table of contents) ========== //
 // Width of the post toc.
 $post-toc-width: 200px !default;
 

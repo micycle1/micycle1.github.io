@@ -7,6 +7,7 @@ lastmod: "2018-02-01T18:01:23+08:00"
 tags:
 - shortcodes
 title: Shortcodes
+hiddenFromHomePage: true
 ---
 
 # Admonition

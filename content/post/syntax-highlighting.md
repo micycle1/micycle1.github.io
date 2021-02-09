@@ -10,6 +10,7 @@ tags:
 - tag-5
 title: Syntax Highlighting
 toc: false
+hiddenFromHomePage: true
 ---
 
 

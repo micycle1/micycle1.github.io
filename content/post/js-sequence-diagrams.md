@@ -5,6 +5,7 @@ sequenceDiagrams:
   enable: true
   options: '{theme: ''hand''}'
 title: JS Sequence Diagrams
+hiddenFromHomePage: true
 ---
 
 ## Usage

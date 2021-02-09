@@ -13,6 +13,7 @@ tags:
 - English
 - tag-2
 title: '[English] Creating a New Theme'
+hiddenFromHomePage: true
 ---
 
 ## Introduction
